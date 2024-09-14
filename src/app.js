@@ -1,11 +1,25 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let pronoun = ["the", "our"];
+let adj = ["great", "big"];
+let noun = ["jogger", "racoon"];
+let dominios = [".com", ".org", ".net", ".io"];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function generarNombresDeDominio() {
+  let nombresDeDominio = [];
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+  pronoun.forEach(pronombre => {
+    adj.forEach(adjetivo => {
+      adj.forEach(sustantivo => {
+        dominios.forEach(dominio => {
+          let nombreDeDominio = pronombre + adjetivo + sustantivo + dominio;
+          nombresDeDominio.push(nombreDeDominio);
+        });
+      });
+    });
+  });
+
+  return nombresDeDominio;
+}
+
+const dominiosGenerados = generarNombresDeDominio();
+// eslint-disable-next-line no-console
+dominiosGenerados.forEach(nombre => console.log(nombre));
